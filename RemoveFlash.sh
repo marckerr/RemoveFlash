@@ -36,5 +36,4 @@ for folder in /Users/*; do
     	echo "Removing /Users/${user}/Library/Caches/Adobe/Flash Player"
         rm -rf "/Users/${user}/Library/Caches/Adobe/Flash Player"
     fi
-    
 done
