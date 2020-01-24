@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # This script removes Adobe FlashPlayer as well as preferences that may
-# be in the users home directory. Use this script as you see fit and
-# improve it. This script may not work as you expect so please test.
-# There is no warranty or guarantee. Buy using this script you accepte
-# the consequences of its actions. If you find a problem with this
-# script say so in the issues.
+# be in the users home directory. Use this script as you see fit. This
+# script may not work as you expect so please test. There is no warranty
+# or guarantee. By using this script you accepte the consequences of its
+# actions. If you find a problem with this script say so in the issues.
 
 # last edit 2020_01_24
 
@@ -25,7 +24,7 @@ for removeThis in "${removeThis[@]}" ; do
 	fi
 done
 
-# iterate through list of folders in /Users
+# Check for the two directories in each user home directorie and remove them
 for folder in /Users/*; do
     user=$(basename "${folder}")
     # compare folder name against the array items
