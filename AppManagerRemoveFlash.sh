@@ -6,7 +6,6 @@
 # last edit 2020_01_24
 
 # Try running the official removal tool first.
-
 if [ -e "/Applications/Utilities/Adobe Flash Player Install Manager.app/Contents/MacOS/Adobe Flash Player Install Manager" ] ; then
 /Applications/Utilities/Adobe\ Flash\ Player\ Install\ Manager.app/Contents/MacOS/Adobe\ Flash\ Player\ Install\ Manager -uninstall
 fi
@@ -28,7 +27,7 @@ for removeThis in "${removeThis[@]}" ; do
 	fi
 done
 
-# Last check for the two directories in each user directory and remove them
+# Last check for the two directories in each user directory and remove them because the install manager doesn't
 for folder in /Users/*; do
     user=$(basename "${folder}")
     # compare folder name against the array items
