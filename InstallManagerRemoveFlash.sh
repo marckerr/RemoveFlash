@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Using the Flash Player Install Manager tool is a better method for removing flash.
+# Using the Flash Player Install Manager tool is the official method for removing flash.
 # Thanks to the Neal on the MacAdmins # adobe Slack
 
-# last edit 2020_01_24
+# last edit 2020_01_27
 
 # Try running the official removal tool first.
 if [ -e "/Applications/Utilities/Adobe Flash Player Install Manager.app/Contents/MacOS/Adobe Flash Player Install Manager" ] ; then
 /Applications/Utilities/Adobe\ Flash\ Player\ Install\ Manager.app/Contents/MacOS/Adobe\ Flash\ Player\ Install\ Manager -uninstall
 fi
 
-# Now lets check to be sure all the files got removed or if the Install Manager is missing this will remove things.
+# Now in case Install Manager fails remove everything anyway and remove the directories the Install Manager does not clean up.
 removeThis=("/Library/Application Support/Macromedia" \
 			"/Library/Application Support/Adobe/Flash Player Install Manager" \
 			"/Library/Internet Plug-Ins/Flash Player.plugin" \
@@ -27,13 +27,13 @@ for removeThis in "${removeThis[@]}" ; do
 	fi
 done
 
-# Last check for the two directories in each user directory and remove them because the install manager doesn't
+# Last check for these two directories in each user directory and remove them because the install manager doesn't.
 for folder in /Users/*; do
     user=$(basename "${folder}")
     # compare folder name against the array items
-    if [ -e "/Users/${user}/Library/Preferences/Macromedia/Flash Player" ]; then
-    	echo "Removing /Users/${user}/Library/Preferences/Macromedia/Flash Player"
-        rm -rf "/Users/${user}/Library/Preferences/Macromedia/Flash Player"
+    if [ -e "/Users/${user}/Library/Preferences/Macromedia" ]; then
+    	echo "Removing /Users/${user}/Library/Preferences/Macromedia"
+        rm -rf "/Users/${user}/Library/Preferences/Macromedia"
     fi
     if [ -e "/Users/${user}/Library/Caches/Adobe/Flash Player" ]; then
     	echo "Removing /Users/${user}/Library/Caches/Adobe/Flash Player"
