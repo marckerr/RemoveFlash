@@ -1,4 +1,4 @@
-# RemoveFlash
+# Remove Flash Uninstall Flash
 
 This script removes Adobe Flash Player as well as preferences that may be
 in the user home directories. Use this script as you see fit. This
